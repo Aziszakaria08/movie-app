@@ -1,4 +1,3 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { Navbar } from "./components/Navbar";
@@ -12,10 +11,7 @@ const App = () => {
             setTrendingMovies(result);
         });
     }, []);
-
-    //   console.log(linkRef);
-
-    const linkRef = useRef(null)
+    const linkRef = useRef(null);
     const goto = (ref) => {
         window.scrollTo({
             top: ref.current.offsetTop,
@@ -26,7 +22,7 @@ const App = () => {
 
     return (
         <>
-            <Navbar goto={()=>goto(linkRef)} />
+            <Navbar goto={() => goto(linkRef)} />
             <Slider trendingMovies={trendingMovies} />
             <Trending trendingMovies={trendingMovies} ref={linkRef} />
         </>

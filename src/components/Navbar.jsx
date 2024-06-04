@@ -1,14 +1,8 @@
-// import { Link } from "react-router-dom";
-// import { useRef } from "react";
-
 export const Navbar = ({ goto }) => {
     const navigation = [
         { name: "TRENDING", action: goto },
         { name: "SUPER HERO", action: "" },
     ];
-
-    //   const linkRef = useRef(null);
-
     return (
         <header className="w-full fixed bg-black md:bg-black top-0 left-0 right-0 z-50">
             <nav className="flex justify-between font-serif md:px-6 md:py-4 p-4 ">
@@ -33,13 +27,6 @@ export const Navbar = ({ goto }) => {
                                     {item.name}
                                 </a>
                             )}
-                            {/* <Link
-                                to={item.path}
-                                
-                                className="text-xs text-slate-400 p-2 hover:text-slate-300 md:text-base md:p-8"
-                            >
-                                {item.name}
-                            </Link> */}
                         </li>
                     ))}
                 </ul>
