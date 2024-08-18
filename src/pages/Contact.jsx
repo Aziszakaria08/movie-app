@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../Layout/Layout";
 import Head from "../components/Head";
 import { MdEmail, MdCall, MdLocationOn } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 function Contact() {
     const ContactUser = [

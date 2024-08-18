@@ -2,11 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import apiConfig from "../config/apiConfig";
 import Rated from "./Rated";
-// import Star from "./Star";
 
 function ListPopularMovies({ movie }) {
-    // console.log(movie.id);
-
     return (
         <div className="border border-slate-400 p-1 hover:scale-95 transition-all duration-300 relative rounded-sm gap-4 shadow-md shadow-gray-800">
             <Link to={`/movie/${movie?.title}`} className="w-full">
