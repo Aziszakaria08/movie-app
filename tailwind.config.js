@@ -16,6 +16,7 @@ export default {
                 main: "rgb(8, 10, 26)",
                 subMain: "#c5230e",
                 star: "#FFAF00",
+                dry: "#0f172a",
             },
         },
     },

@@ -47,7 +47,7 @@ const Footer = () => {
         },
     ];
     return (
-        <div className="bg-slate-900 py-4 px-2 border-2 border-black">
+        <div className="bg-dry py-4 px-2 border-2 border-black">
             <div className="container mx-auto px-2">
                 <div className="grid grid-cols-2 md:grid-cols-6 gap-5 sm:gap-9 lg:grid-cols-9 py-10 w-full">
                     {Links.map((link, index) => (

@@ -8,7 +8,7 @@ import apiConfig from "../config/apiConfig";
 export const getMovieList = async () => {
     // memanggil data yang ada pada api
     const movie = await axios.get(
-        `${apiConfig.baseurl}/discover/movie?&page=1&${apiConfig.api_key}`,
+        `${apiConfig.baseurl}/movie/popular?&page=1&${apiConfig.api_key}`,
         {
             headers: {
                 Authorization: `Bearer ${apiConfig.token}`,
@@ -38,3 +38,31 @@ export const getGenreMovies = async () => {
     );
     return movie.data.genres;
 };
+
+export const getSearchMovie = async (q) => {
+    const search = await axios.get(
+        `${apiConfig.baseurl}/search/movie?&page=1&query=${q}&api_key=${apiConfig.api_key}`
+    );
+    return search.data.results;
+};
+
+export const getMovieVideos = async (id) => {
+    const response = await axios.get(
+        `${apiConfig.baseurl}/movie/${id}/videos?api_key=${apiConfig.api_key}`
+    );
+    // console.log(response.data.results);
+
+    return response.data.results;
+};
+
+export const getMovieCredits = async (id) => {
+    const response = await axios.get(
+        `${apiConfig.baseurl}/movie/${id}/credits?api_key=${apiConfig.api_key}`
+    );
+    // console.log(response.data.cast);
+
+    return response.data.cast;
+};
+
+//Duration Video
+export const getMovieDetails = async () => {};

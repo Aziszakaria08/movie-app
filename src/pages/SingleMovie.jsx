@@ -4,17 +4,25 @@ import Layout from "../Layout/Layout";
 import { useMovieData } from "../../hooks/useMovieData";
 import MovieInfo from "../components/Single/MovieInfo";
 import MovieCasts from "../components/Single/MovieCasts";
-import MovieRates from "../components/Single/MovieRates";
+import UseSearchMovies from "../../hooks/UseSearchMovies";
+import SearchMovies from "../components/SearchMovies";
 
 function SingleMovie() {
     const { id } = useParams();
-    const { movies } = useMovieData();
-    const movie = movies.find((movie) => movie.title === id);
+    const { movies, loading } = useMovieData();
+    const movie = movies.find((movie) => movie?.id == id);
+    const { searchResults, handleSearch } = UseSearchMovies(movie);
+
     return (
-        <Layout>
-            <MovieInfo movie={movie} />
-            <MovieCasts />
-            <MovieRates />
+        <Layout onSearch={handleSearch}>
+            {searchResults.length > 0 ? (
+                <SearchMovies searchResults={searchResults} />
+            ) : (
+                <>
+                    <MovieInfo movie={movie} />
+                    <MovieCasts />
+                </>
+            )}
         </Layout>
     );
 }

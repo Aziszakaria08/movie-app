@@ -39,7 +39,7 @@ function Banner() {
                             </div>
                             <div className="flex gap-5 items-center">
                                 <Link
-                                    to={`/`}
+                                    to={`/movie/${movie.id}`}
                                     className="bg-subMain text-white transition duration-300 hover:text-main py-2 px-5 text-sm rounded-sm"
                                 >
                                     Watch

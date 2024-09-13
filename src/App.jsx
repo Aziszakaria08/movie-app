@@ -11,23 +11,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SingleMovie from "./pages/SingleMovie";
 import NotFound from "./pages/NotFound";
+import MovieTrailer from "./components/MovieTrailer";
 
 const App = () => {
-    // const [trendingMovies, setTrendingMovies] = useState([]);
-    // useEffect(() => {
-    //     getMovieList().then((result) => {
-    //         setTrendingMovies(result);
-    //     });
-    // }, []);
-    // const linkRef = useRef(null);
-    // const goto = (ref) => {
-    //     window.scrollTo({
-    //         top: ref.current.offsetTop,
-    //         left: 0,
-    //         behavior: "smooth",
-    //     });
-    // };
-
     return (
         <Router basename="/movie-app">
             <Routes>
@@ -36,6 +22,7 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/movie/:id" element={<SingleMovie />} />
+                <Route path="/watch/:id" element={<MovieTrailer />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>

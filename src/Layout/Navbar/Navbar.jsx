@@ -5,12 +5,13 @@ import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen((isOpen) => !isOpen);
     };
+
     return (
         <nav className="bg-main sticky top-0 w-full z-10 p-4">
             <div className="container mx-auto flex justify-between items-center font-sans">
@@ -59,6 +60,9 @@ const Navbar = () => {
                             <input
                                 type="search"
                                 placeholder="search"
+                                onChange={({ target }) =>
+                                    onSearch(target.value)
+                                }
                                 className="rounded-md text-sm ml-4 p-1 md:p-3  focus:outline-none focus:ring-subMain focus:ring-1 focus:border-subMain text-slate-900 "
                             />
                         </div>
@@ -78,7 +82,7 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden bg-slate-800  w-full p-2 mt-1 rounded">
                     <NavLink
-                        to="/"
+                        to="/movies"
                         className={({ isActive }) =>
                             isActive
                                 ? "text-subMain p-4"

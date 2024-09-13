@@ -4,26 +4,25 @@ import { getMovieList, getTopRated } from "../src/services/movieService";
 export function useMovieData() {
     const [movies, setMovies] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchMovies = async () => {
-            const [popularMovies, topRated] = await Promise.all([
-                getMovieList(),
-                getTopRated(),
-            ]);
-            setMovies(popularMovies);
-            setTopRatedMovies(topRated);
+            try {
+                setLoading(true);
+                const [popularMovies, topRated] = await Promise.all([
+                    getMovieList(),
+                    getTopRated(),
+                ]);
+                setMovies(popularMovies);
+                setTopRatedMovies(topRated);
+            } catch (err) {
+                console.error("failed to fetch movies", err);
+            } finally {
+                setLoading(false);
+            }
         };
         fetchMovies();
-
-        // getMovieList().then((response) => {
-        //     console.log("poppular movies: ", response);
-
-        //     setMovies(response);
-        // });
-        // getTopRated().then((response) => {
-        //     setTopRatedMovies(response);
-        // });
     }, []);
-    return { movies, topRatedMovies };
+    return { movies, topRatedMovies, loading };
 }
